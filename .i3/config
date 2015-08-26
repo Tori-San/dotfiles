@@ -63,6 +63,12 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+#move between screens
+bindsym $mod+Shift+Mod1+Left move workspace to output left
+bindsym $mod+Shift+Mod1+Down move workspace to output down
+bindsym $mod+Shift+Mod1+Up move workspace to output up
+bindsym $mod+Shift+Mod1+Right move workspace to output right
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -143,7 +149,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec 'i3-msg exit'
-bindsym $mod+Shift+e exec sh -c '[$(echo "n/y" | dmenu -sb "#ff6600" -i -p "Really exit i3 X session?") = "y"] && i3-msg exit'
+bindsym $mod+Shift+e exec sh -c '[$(echo "n/y" | dmenu -sb "#ff6600" -i -p "Really exit i3 X session?") = y* ] && i3-msg exit'
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)

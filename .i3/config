@@ -183,3 +183,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+bindsym $mod+F11 exec setxkbmap de
+bindsym $mod+F12 exec setxkbmap de neo

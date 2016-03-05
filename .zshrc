@@ -82,4 +82,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias netrestart="systemctl restart netctl-auto@wlp8s0.service"
+
 export QT_X11_NO_MITSHM=1
+
+export VISUAL=vim
+export EDITOR="$VISUAL"

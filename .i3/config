@@ -15,7 +15,8 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 8
+font pango:Terminus 8
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -35,7 +36,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 ##bindsym $mod+d exec dmenu_run -fn '-*-*-*-*-*-*-*-*-*-*-*-120-*-*'
 ##bindsym $mod+d exec ~/bin/dm-recent -i -h 14 -y 0 -w 250 -q -l 5 -p "> " -nb "#1a1a1a" -nf "#77438f" -sb "#272727" -sf "#348c51"
-bindsym $mod+d exec --no-startup-id ~/bin/dm-recent -i -p "> "
+bindsym $mod+d exec --no-startup-id ~/bin/dm-recent -i -sf '#ffffff' -sb '#353535' -nb '#171717' -p "> "
 #bindsym $mod+Shift+d exec $(dm-recent -f)
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -260,5 +261,5 @@ bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
 
 ## autostart
 
-#exec --np-startup-id compton
+exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config
 exec --no-startup-id sh ~/.fehbg

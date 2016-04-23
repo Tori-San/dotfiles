@@ -214,6 +214,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+## custom keybindings
+
+bindsym $mod+F11 exec setxkbmap de
+bindsym $mod+F12 exec setxkbmap de neo
+
+bindsym XF86MonBrightnessDown exec xbacklight - 20 #Decrease Brightness
+bindsym XF86MonBrightnessUp exec xbacklight + 20 #Increase Brightness
+
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle #Mute
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% #Decrease Volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% #Increase Volume
+
+bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
+
 ## looks
 
 new_window pixel 4
@@ -247,19 +261,7 @@ bar {
 		}
 }
 
-bindsym $mod+F11 exec setxkbmap de
-bindsym $mod+F12 exec setxkbmap de neo
+# autostart
 
-bindsym XF86MonBrightnessDown exec xbacklight - 20 #Decrease Brightness
-bindsym XF86MonBrightnessUp exec xbacklight + 20 #Increase Brightness
-
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle #Mute
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% #Decrease Volume
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% #Increase Volume
-
-bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
-
-## autostart
-
-exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
+exec --no-startup-id sh ~/.fehbg # wallpaper

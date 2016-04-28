@@ -234,11 +234,12 @@ new_window pixel 4
 gaps inner 5
 gaps outer 5
 smart_gaps on
+smart_borders on
 
 ## colours
 
-set $FOCUS		#353535
-set $UNFOCUS	#171717
+set $FOCUS		#64707a
+set $UNFOCUS	#383c4a
 set $URGENT		#ff6600
 
 #type					border		background	text		indicator

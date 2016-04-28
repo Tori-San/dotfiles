@@ -233,9 +233,9 @@ bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
 ## looks
 
 new_window pixel 4
-gaps inner 5
-gaps outer 5
-smart_gaps on
+#gaps inner 5
+#gaps outer 5
+#smart_gaps on
 
 ## colours
 

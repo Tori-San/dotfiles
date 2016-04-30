@@ -238,8 +238,8 @@ smart_borders on
 
 ## colours
 
-set $FOCUS		#64707a
-set $UNFOCUS	#383c4a
+set $FOCUS		#01a9f7
+set $UNFOCUS	#3e3f42
 set $URGENT		#ff6600
 
 #type					border		background	text		indicator

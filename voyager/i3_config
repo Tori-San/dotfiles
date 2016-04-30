@@ -238,7 +238,7 @@ smart_borders on
 
 ## colours
 
-set $FOCUS		#01a9f7
+set $FOCUS		#b5bd68
 set $UNFOCUS	#3e3f42
 set $URGENT		#ff6600
 
@@ -256,7 +256,7 @@ bar {
 				background	$bg-color
 			
 				#type				border		background	text
-				focused_workspace	#000000		$FOCUS		#ffffff
+				focused_workspace	#000000		$FOCUS		#000000
 				inactive_workspace	#000000		$UNFOCUS	#ffffff	
 				urgent_workspace	#000000		$URGENT		#ffffff	
 		}

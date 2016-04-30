@@ -2,8 +2,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-set t_Co=256
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -106,13 +104,8 @@ let g:Tex_ViewRule_pdf = "exec evince"
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
 
-set laststatus=2
-
-let g:airline_theme='bubblegum'
-set noshowmode
-set timeoutlen=50
-let g:bufferline_echo = 0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim/
+" set laststatus=2
+" set t_Co=256
 
 " set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after

@@ -220,6 +220,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+F11 exec setxkbmap de
 bindsym $mod+F12 exec setxkbmap de neo
+bindsym $mod+Shift+F11 exec setxkbmap us
 
 bindsym XF86MonBrightnessDown exec xbacklight - 20 #Decrease Brightness
 bindsym XF86MonBrightnessUp exec xbacklight + 20 #Increase Brightness
@@ -235,12 +236,13 @@ bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
 new_window pixel 4
 #gaps inner 5
 #gaps outer 5
-#smart_gaps on
+smart_gaps on
+smart_borders on
 
 ## colours
 
-set $FOCUS		#353535
-set $UNFOCUS	#171717
+set $FOCUS		#b5bd68
+set $UNFOCUS	#454749
 set $URGENT		#ff6600
 
 #type					border		background	text		indicator
@@ -257,7 +259,7 @@ bar {
 				background	$bg-color
 			
 				#type				border		background	text
-				focused_workspace	#000000		$FOCUS		#ffffff
+				focused_workspace	#000000		$FOCUS		#000000
 				inactive_workspace	#000000		$UNFOCUS	#ffffff	
 				urgent_workspace	#000000		$URGENT		#ffffff	
 		}

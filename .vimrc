@@ -100,19 +100,21 @@ set shiftwidth=4
 filetype plugin on
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
+
+" Powerline
+set laststatus=2
+
+let g:airline_theme='bubblegum'
+set noshowmode
+set " timeoutlen=50 " breaks LaTeX \ll alias
+let g:bufferline_echo = 0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" LaTeX
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = "pdf"
 let g:Tex_ViewRule_pdf = "exec evince"
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
-
-set laststatus=2
-
-let g:airline_theme='bubblegum'
-set noshowmode
-set timeoutlen=50
-let g:bufferline_echo = 0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-
-" set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after

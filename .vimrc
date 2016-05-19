@@ -106,7 +106,7 @@ set laststatus=2
 
 let g:airline_theme='bubblegum'
 set noshowmode
-"set timeoutlen=50 " breaks LaTeX \ll alias
+" set timeoutlen=50 " breaks LaTeX \ll alias
 let g:bufferline_echo = 0
 let g:airline_left_sep=''
 let g:airline_right_sep=''

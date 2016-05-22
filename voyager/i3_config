@@ -212,7 +212,41 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+mode "gaps" {
+    bindsym o      mode "gaps-o"
+    bindsym i      mode "gaps-i"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "gaps-i" {
+    bindsym p  gaps inner current plus 5
+    bindsym m gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+
+    bindsym Shift+p  gaps inner all plus 5
+    bindsym Shift+m gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "gaps-o" {
+    bindsym p     gaps outer current plus 5
+    bindsym m     gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+p     gaps outer all plus 5
+    bindsym Shift+m     gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 bindsym $mod+r mode "resize"
+bindsym $mod+Shift+g mode "gaps"
 
 ## custom keybindings
 
@@ -232,9 +266,9 @@ bindsym XF86TouchpadToggle exec --no-startup-id toggletouchpad #Toggle Touchpad
 ## looks
 
 new_window pixel 4
-gaps inner 5
-gaps outer 0
-smart_gaps on
+gaps inner 4
+gaps outer 4
+#smart_gaps on
 smart_borders on
 
 ## colours
@@ -251,19 +285,22 @@ client.urgent			$URGENT		$URGENT		#000000		$URGENT
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-		colors {
-				background	$bg-color
-			
-				#type				border		background	text
-				focused_workspace	#000000		$FOCUS		#000000
-				inactive_workspace	#000000		$UNFOCUS	#ffffff	
-				urgent_workspace	#000000		$URGENT		#ffffff	
-		}
-}
+##bar {
+    ##  status_command i3status
+    ##    status_command .config/i3/bar_wrapper.sh
+	##	colors {
+	##			background	$bg-color
+	##		
+	##			#type				border		background	text
+	##			focused_workspace	#000000		$FOCUS		#000000
+	##			inactive_workspace	#000000		$UNFOCUS	#ffffff	
+	##			urgent_workspace	#000000		$URGENT		#ffffff	
+	##	}
+##}
 
 # autostart
+
+exec --no-startup-id .config/i3/bar_wrapper.sh
 
 exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
 exec --no-startup-id sh ~/.fehbg # wallpaper

@@ -174,7 +174,7 @@ bindsym $mod+Shift+F10 move container to workspace $wf0
 
 # assignments
 
-assign [class="chromium"] $w1
+##assign [class="chromium"] $w1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -234,8 +234,8 @@ bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
 ## looks
 
 new_window pixel 4
-#gaps inner 5
-#gaps outer 5
+gaps inner 5
+gaps outer 0
 smart_gaps on
 smart_borders on
 

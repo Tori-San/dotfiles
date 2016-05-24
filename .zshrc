@@ -5,8 +5,8 @@ export ZSH=/usr/share/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="agnoster"
-ZSH_THEME="juanghurtado"
+ZSH_THEME="pow"
+#ZSH_THEME="juanghurtado"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,5 +87,7 @@ export QT_X11_NO_MITSHM=1
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+#. ~/Repos/powerline/powerline/bindings/zsh/powerline.zsh
 
 #export DEFAULT_USER=kai

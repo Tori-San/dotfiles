@@ -24,6 +24,8 @@ font pango:Terminus 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+focus_follows_mouse no
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -172,7 +174,7 @@ bindsym $mod+Shift+F10 move container to workspace $wf0
 
 # assignments
 
-assign [class="chromium"] $w1
+##assign [class="chromium"] $w1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -214,17 +216,33 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+## custom keybindings
+
+bindsym $mod+F11 exec setxkbmap de
+bindsym $mod+F12 exec setxkbmap de neo
+bindsym $mod+Shift+F11 exec setxkbmap us
+
+bindsym XF86MonBrightnessDown exec xbacklight - 20 #Decrease Brightness
+bindsym XF86MonBrightnessUp exec xbacklight + 20 #Increase Brightness
+
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle #Mute
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% #Decrease Volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% #Increase Volume
+
+bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
+
 ## looks
 
 new_window pixel 4
-gaps inner 5
-gaps outer 5
+gaps inner 0
+gaps outer 0
 smart_gaps on
+smart_borders on
 
 ## colours
 
-set $FOCUS		#353535
-set $UNFOCUS	#171717
+set $FOCUS		#b5bd68
+set $UNFOCUS	#454749
 set $URGENT		#ff6600
 
 #type					border		background	text		indicator
@@ -241,25 +259,13 @@ bar {
 				background	$bg-color
 			
 				#type				border		background	text
-				focused_workspace	#000000		$FOCUS		#ffffff
+				focused_workspace	#000000		$FOCUS		#000000
 				inactive_workspace	#000000		$UNFOCUS	#ffffff	
 				urgent_workspace	#000000		$URGENT		#ffffff	
 		}
 }
 
-bindsym $mod+F11 exec setxkbmap de
-bindsym $mod+F12 exec setxkbmap de neo
+# autostart
 
-bindsym XF86MonBrightnessDown exec xbacklight - 20 #Decrease Brightness
-bindsym XF86MonBrightnessUp exec xbacklight + 20 #Increase Brightness
-
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle #Mute
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% #Decrease Volume
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% #Increase Volume
-
-bindsym XF86TouchpadToggle exec toggletouchpad #Toggle Touchpad
-
-## autostart
-
-exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
+exec --no-startup-id sh ~/.fehbg # wallpaper

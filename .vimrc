@@ -96,7 +96,9 @@ set number
 set relativenumber
 set tabstop=4
 set shiftwidth=4
-:color desert
+" :color desert
+colorscheme sweyla839383
+sy on
 filetype plugin on
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*

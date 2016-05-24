@@ -88,4 +88,6 @@ export QT_X11_NO_MITSHM=1
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+#. ~/Repos/powerline/powerline/bindings/zsh/powerline.zsh
+
 #export DEFAULT_USER=kai

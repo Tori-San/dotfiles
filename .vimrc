@@ -97,7 +97,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 " :color desert
-colorscheme sweyla839383
+colorscheme sift
 sy on
 filetype plugin on
 filetype plugin indent on
@@ -105,7 +105,6 @@ set grepprg=grep\ -nH\ $*
 
 " Powerline
 set laststatus=2
-
 let g:airline_theme='bubblegum'
 set noshowmode
 " set timeoutlen=50 " breaks LaTeX \ll alias
@@ -120,4 +119,5 @@ let g:Tex_ViewRule_pdf = "exec evince"
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-" set rtp+=~/Repos/powerline/powerline/bindings/vim
+
+" set runtimepath+=~/Repos/powerline/powerline/bindings/vim

@@ -91,3 +91,4 @@ export EDITOR="$VISUAL"
 #. ~/Repos/powerline/powerline/bindings/zsh/powerline.zsh
 
 #export DEFAULT_USER=kai
+#source /usr/share/zsh-dwim/init.zsh 

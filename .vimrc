@@ -97,7 +97,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 " :color desert
-colorscheme sweyla839383
+colorscheme sift
 sy on
 filetype plugin on
 filetype plugin indent on
@@ -117,6 +117,7 @@ let g:airline_right_sep=''
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = "pdf"
 let g:Tex_ViewRule_pdf = "exec evince"
+let g:Tex_CompileRule_pdf = "lualatex"
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after

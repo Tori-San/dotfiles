@@ -102,7 +102,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 " :color desert
-colorscheme sift
+colorscheme jellybeans
 sy on
 filetype plugin on
 filetype plugin indent on

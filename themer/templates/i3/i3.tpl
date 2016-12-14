@@ -1,4 +1,4 @@
-set $background {{ black }}
+set $background #121212
 set $foreground {{ white }}
 set $gray       {{ alt_black }}
 set $primary    {{ primary }}
@@ -19,7 +19,7 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id ~/bin/dm-recent -fn "terminesspowerline-8" -i -nb "{{ black }}" -nf "{{ tertiary }}" -sb "{{ secondary }}" -sf "{{ black }}" -p "> "
+bindsym $mod+d exec --no-startup-id ~/bin/dm-recent -fn "terminesspowerline-8" -i -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -p "> "
 
 # change focus
 #bindsym $mod+j focus left
@@ -34,10 +34,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -72,14 +72,14 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+a focus child
 
 # screenshot
 bindsym Print exec scrot -u -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release Shift+Print exec scrot -s -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym --release Shift+Print exec scrot -s -e 'mv $f ~/Pictures/Screenshots/'
 
 # workspaces
 
@@ -160,11 +160,12 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ special }}\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
+bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
 
-bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ special }}\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
+bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
 
-bindsym $mod+Shift+x exec "i3lock-fancy -gp"
+#bindsym $mod+Shift+x exec "i3lock-fancy -gp"
+#bindsym $mod+Shift+x exec i3lock -n -u -i '/home/kai/Pictures/Wallpapers/p2bsod.png'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -174,10 +175,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        #bindsym j resize shrink width 10 px or 10 ppt
+        #bindsym k resize grow height 10 px or 10 ppt
+        #bindsym l resize shrink height 10 px or 10 ppt
+        #bindsym odiaeresis resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -244,15 +245,15 @@ bindsym XF86TouchpadToggle exec --no-startup-id toggletouchpad #Toggle Touchpad
 
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~kai/.config/i3/get_workspaces.py | dmenu -sb \\"{{ special }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~kai/.config/i3/get_workspaces.py | dmenu -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
 
-bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~kai/.config/i3/get_workspaces.py | dmenu -sb \\"{{ special }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~kai/.config/i3/get_workspaces.py | dmenu -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
 
 ## looks
 
-new_window pixel 4
-gaps inner 6
-gaps outer 4
+new_window pixel 3
+gaps inner 3
+#gaps outer 4
 #smart_gaps on
 smart_borders on
 
@@ -273,13 +274,15 @@ for_window[title="^Scratch$"] move scratchpad
 
 # bar
 
-exec_always --no-startup-id pkill -f 'python .*powerline-lemonbar\.py'
-exec_always --no-startup-id sleep 1 && ~/Repos/powerline/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
+##exec_always --no-startup-id pkill -f 'python .*powerline-lemonbar\.py'
+##exec_always --no-startup-id sleep 1 && ~/Repos/powerline/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
+exec --no-startup-id powerline-lemonbar --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
+
 
 #exec --no-startup-id .config/i3/bar_wrapper.sh
 
 exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
 ##exec --no-startup-id ~/utils/randomPokemonWallpaper # wallpaper
 exec --no-startup-id ~/.fehbg
-exec --no-startup-id xfce-terminal --title=Scratch
+exec --no-startup-id xfce4-terminal --title=Scratch
 exec --no-startup-id chromium --title=Chromium

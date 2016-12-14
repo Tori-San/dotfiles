@@ -9,4 +9,5 @@ setxkbmap de neo
 if [ -f ~/.screenlayout/default.sh ] ; then
 	. ~/.screenlayout/default.sh
 fi
+
 exec i3 -V >> ~/.i3log/i3log-"$(date +%F)" 2>&1

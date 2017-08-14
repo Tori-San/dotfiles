@@ -27,7 +27,7 @@ ZSH_THEME="pow"
  ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -81,8 +81,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias netrestart="systemctl restart netctl-auto@wlp2s0.service"
-
 export QT_X11_NO_MITSHM=1
 
 export VISUAL=vim
@@ -92,5 +90,8 @@ export EDITOR="$VISUAL"
 
 #export DEFAULT_USER=kai
 #source /usr/share/zsh-dwim/init.zsh
+
+# Syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 REPORTTIME=1

@@ -13,13 +13,13 @@ font pango:Terminus 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id ~/bin/dm-recent -fn "terminesspowerline-8" -i -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -p "> "
+bindsym $mod+d exec --no-startup-id ~/utils/dm-recent -fn "terminesspowerline-8" -i -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -p "> "
 
 # change focus
 #bindsym $mod+j focus left
@@ -78,8 +78,8 @@ bindsym $mod+Shift+a focus parent
 bindsym $mod+a focus child
 
 # screenshot
-bindsym Print exec scrot -u -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release Shift+Print exec scrot -s -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Print exec scrot -u -e 'xclip -selection clipboard -t image/png $f && mv $f /tmp'
+bindsym --release Shift+Print exec scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f /tmp'
 
 # workspaces
 
@@ -160,12 +160,12 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
+bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
 
-bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
+bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
 
 #bindsym $mod+Shift+x exec "i3lock-fancy -gp"
-#bindsym $mod+Shift+x exec i3lock -n -u -i '/home/kai/Pictures/Wallpapers/p2bsod.png'
+bindsym $mod+Shift+x exec --no-startup-id i3lock -n -c 161618
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -234,8 +234,8 @@ bindsym $mod+Shift+F11 exec --no-startup-id setxkbmap -layout us -variant intl
 bindsym $mod+F12 exec --no-startup-id setxkbmap de neo
 bindsym $mod+Shift+F12 exec --no-startup-id setxkbmap de
 
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 20 #Decrease Brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight + 20 #Increase Brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 10 #Decrease Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight + 10 #Increase Brightness
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle #Mute
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% #Decrease Volume
@@ -245,14 +245,14 @@ bindsym XF86TouchpadToggle exec --no-startup-id toggletouchpad #Toggle Touchpad
 
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~kai/.config/i3/get_workspaces.py | dmenu -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~kai/utils/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
 
-bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~kai/.config/i3/get_workspaces.py | dmenu -sb \\"{{ primary }}\\" -nb \\"#121212\\" -nf \\"{{ secondary }}\\" -sf \\"#121212\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~kai/utils/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
 
 ## looks
 
 new_window pixel 3
-gaps inner 3
+gaps inner 18
 #gaps outer 4
 #smart_gaps on
 smart_borders on
@@ -268,7 +268,11 @@ client.urgent           $warning    $warning    $foreground $warning
 # workspace-assignments
 
 for_window[title="Chromium"] move workspace 1
+
 for_window[title="^Scratch$"] move scratchpad
+for_window[title="^Scratch$"] sticky enable
+
+for_window[title="^Floaty$"] floating enable
 
 # autostart
 
@@ -276,13 +280,18 @@ for_window[title="^Scratch$"] move scratchpad
 
 ##exec_always --no-startup-id pkill -f 'python .*powerline-lemonbar\.py'
 ##exec_always --no-startup-id sleep 1 && ~/Repos/powerline/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
-exec --no-startup-id powerline-lemonbar --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
+exec --no-startup-id powerline-daemon -q
+exec_always --no-startup-id killall lemonbar
+exec_always --no-startup-id powerline-lemonbar --i3 --clicks --height 13 -- -a 40 -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
 
+exec --no-startup-id redshift
 
 #exec --no-startup-id .config/i3/bar_wrapper.sh
 
 exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
 ##exec --no-startup-id ~/utils/randomPokemonWallpaper # wallpaper
-exec --no-startup-id ~/.fehbg
-exec --no-startup-id xfce4-terminal --title=Scratch
+exec_always --no-startup-id ~/.fehbg
+exec --no-startup-id termite --title=Scratch
 exec --no-startup-id chromium --title=Chromium
+
+exec_always --no-startup-id ibus-daemon -r

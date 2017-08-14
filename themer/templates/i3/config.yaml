@@ -3,6 +3,12 @@ variables:
   secondary: green
   tertiary: red
   special: yellow
+  prompt: yellow
+  nb: yellow
+  nf: yellow
+  sb: yellow
+  sf: yellow
+  nb_contrast: yellow
   transparency: 70
   fontName: terminus
   fontSize: 10
@@ -18,9 +24,11 @@ plugins:
   activators:
     - themer.activators.wallfix.WallfixActivator
     - themer.activators.i3.I3Activator
+    - themer.activators.termite.TermiteActivator
   # - themer.activators.acyl.ACYLActivator
 files:
   #Xdefaults.tpl: Xdefaults
   #index.tpl: index.html
   i3.tpl: i3.conf
   powerline.tpl: colors.json
+  termite.tpl: termite.conf

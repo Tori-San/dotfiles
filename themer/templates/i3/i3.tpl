@@ -1,11 +1,3 @@
-set $background #121212
-set $foreground {{ white }}
-set $gray       {{ alt_black }}
-set $primary    {{ primary }}
-set $secondary  {{ secondary }}
-set $tertiary   {{ tertiary }}
-set $warning    {{ special }}
-
 set $mod Mod4
 
 font pango:Terminus 8
@@ -259,11 +251,13 @@ smart_borders on
 
 ## colours
 
-#type					border		background	text		indicator
-client.focused          $primary    $primary   	$background $primary
-client.focused_inactive $background $background $foreground $background
-client.unfocused        $background $background $background $secondary
-client.urgent           $warning    $warning    $foreground $warning
+set $warning    #ff6600
+
+#type                   border      background  text        indicator
+client.focused          {{ sb }}    {{ sb }}    {{ sf }}    {{ sb }}
+client.focused_inactive {{ nb }}    {{ nb }}    {{ nf }}    {{ nb }}
+client.unfocused        {{ nb }}    {{ nb }}    {{ nf }}    {{ nb }}
+client.urgent           $warning    $warning    $warning    $warning
 
 # workspace-assignments
 

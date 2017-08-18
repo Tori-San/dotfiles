@@ -18,12 +18,7 @@
     "_cyan1": "0x{{alt_cyan[1:]}}",
     "_white0": "0x{{white[1:]}}",
     "_white1": "0x{{alt_white[1:]}}",
-	
-	"_primary" : "0x{{ primary[1:] }}",
-	"_secondary" : "0x{{ secondary[1:] }}",
-	"_tertiary" : "0x{{ tertiary[1:] }}",
-	"_special" : "0x{{ special[1:] }}",
-    
+
     "_nb" : "0x{{ nb[1:] }}",
     "_nb_contrast" : "0x{{ nb_contrast[1:] }}",
     "_sb" : "0x{{ sb[1:] }}",

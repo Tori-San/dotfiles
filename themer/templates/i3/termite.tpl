@@ -11,33 +11,33 @@ background = rgba(18, 18, 18, 0.8)
 foreground = #ffffff
 
 # black
-color0 = #1C1C1C
-color8 = #404040
+color0 = {{ black }}
+color8 = {{ alt_black }}
 
 # red
-color1 = #B85335
-color9 = #CF6A4C
+color1 = {{ red }}
+color9 = {{ alt_red }}
 
 # green
-color2 = #87AF5F
-color10 = #99AD6A
+color2 = {{ green }}
+color10 = {{ alt_green }}
 
 # yellow
-color3 = #FFAF5F
-color11 = #FAD07A
+color3 = {{ yellow }}
+color11 = {{ alt_yellow }}
 
 # blue
-color4 = #667899
-color12 = #8197BF
+color4 = {{ blue }}
+color12 = {{ alt_blue }}
 
 # magenta
-color5 = #8787AF
-color13 = #C6B6EE
+color5 = {{ magenta }}
+color13 = {{ alt_magenta }}
 
 # cyan
-color6 = #668799
-color14 = #8FBFDC
+color6 = {{ cyan }}
+color14 = {{ alt_cyan }}
 
 # white
-color7 = #888888
+color7 = {{ white }}
 color15 = {{ prompt }}

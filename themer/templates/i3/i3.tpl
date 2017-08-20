@@ -1,5 +1,7 @@
 set $mod Mod4
 
+set $dmenu ~/dotfiles/scripts/dm-recent
+
 font pango:Terminus 8
 
 floating_modifier $mod
@@ -11,7 +13,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id ~/utils/dm-recent -fn "terminesspowerline-8" -i -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -p "> "
+bindsym $mod+d exec --no-startup-id $dmenu -fn "terminesspowerline-8" -i -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -p "> "
 
 # change focus
 #bindsym $mod+j focus left

@@ -235,13 +235,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle #Mute
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% #Decrease Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% #Increase Volume
 
-bindsym XF86TouchpadToggle exec --no-startup-id toggletouchpad #Toggle Touchpad
+bindsym XF86TouchpadToggle exec --no-startup-id ~/dotfiles/scripts/toggletouchpad #Toggle Touchpad
 
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~kai/utils/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
 
-bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~kai/utils/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
 
 ## looks
 

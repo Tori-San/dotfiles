@@ -1,7 +1,7 @@
 eval $(ssh-agent)
 ssh-add
 
-~/utils/startxcheck.sh
+~/dotfiles/scripts/startxcheck.sh
 if (($? == 0)); then
     startx;
 fi

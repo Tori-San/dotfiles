@@ -36,10 +36,10 @@ foreground: '#ffffff'
 
 # pokemon
 
-nb: '#17201F'
-nf: '#76A0A0'
-sb: '#75A0A0'
-sf: '#F8F8F8'
+nb: '#17201f'
+nf: '#bf4047'
+sb: '#779b9a'
+sf: '#f7f0b2'
 
 nb_contrast: '#FFFFFF'
 prompt: '#D8CF80'

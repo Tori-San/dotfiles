@@ -1,0 +1,45 @@
+# jellybeans
+
+black: '#1C1C1C'
+alt_black: '#404040'
+
+red: '#B85335'
+alt_red: '#CF6A4C'
+
+green: '#87AF5F'
+alt_green: '#99AD6A'
+
+yellow: '#FFAF5F'
+alt_yellow: '#FAD07A'
+
+blue: '#667899'
+alt_blue: '#8197BF'
+
+magenta: '#8787AF'
+alt_magenta: '#C6B6EE'
+
+cyan: '#668799'
+alt_cyan: '#8FBFDC'
+
+white: '#888888'
+alt_white: '#FFFFFF'
+
+# font stuff
+
+font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+fontName: terminus
+fontSize: 10
+transparency: 70
+
+background: '#0e0e0e'
+foreground: '#ffffff'
+
+# pokemon
+
+nb: '#292a2a'
+nf: '#f3c7a4'
+sb: '#a92b2f'
+sf: '#ffffff'
+
+nb_contrast: '#FFFFFF'
+prompt: '#f3c7a4'

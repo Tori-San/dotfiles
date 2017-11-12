@@ -2,6 +2,10 @@
     "segments": {
         "right": [
             {
+                "function": "powerline.segments.common.players.mpd",
+                "name": "player"
+            },
+            {
                 "function": "powerline.segments.common.sys.temp"
             },
             {
@@ -51,8 +55,7 @@
                         "100":          " ",
                         "full":         " ",
                         "online":       " "
-                    },
-                    "original_health":  true
+                    }
                 }
             },
             {

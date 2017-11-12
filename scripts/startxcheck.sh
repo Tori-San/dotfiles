@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if xset q &>/dev/null; then
+    # x already running
+    exit 1
+fi
+
 echo "Start X Server? [Yn]"
 
 while true; do

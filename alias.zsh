@@ -19,7 +19,9 @@ alias rtfm='man'
 alias tldr='less'
 
 alias comp="g++ -std=c++14 -O2 -Wall -Wextra "
-alias compd="clang++ -std=c++14 -g3 -Wall -Wextra -fsanitize=undefined -D_GlIBCXX_DEBUG "
+#alias compd="clang++ -std=c++14 -g3 -Wall -Wextra -fsanitize=undefined -D_GlIBCXX_DEBUG "
+alias compd="clang++ -std=c++14 -g3 -Weverything -Wno-shadow-field-in-constructor -Wno-c++98-compat -Wno-missing-prototypes -Wno-c++98-compat-pedantic -Wno-shorten-64-to-32 -Wno-missing-variable-declarations -Wno-exit-time-destructors -Wno-global-constructors -Wno-padded -Wno-sign-conversion -fsanitize=undefined -fsanitize=address -D_GLIBCXX_DEBUG "
+alias compo="clang++ -std=c++14 -O3 -march=native -Wall -Wextra "
 
 alias clip="xclip -selection clipboard"
 
@@ -30,6 +32,8 @@ alias vserver="ssh -A dratini@v22017014164742712.powersrv.de"
 alias netrestart="systemctl restart netctl-auto@wlp5s0.service"
 
 alias scratch='i3-msg exec "termite --title Scratch"'
+
+alias ナノ="nano"
 
 alias newsandbox="isolate --init --cg"
 alias sandbox="isolate --dir=etc --dir=boot --dir=home --dir=opt --dir=root --dir=sbin --dir=tmp --cg --cg-timing --chdir=$(pwd) --full-env --processes=100 --meta=/tmp/boxmeta --run "

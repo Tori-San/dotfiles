@@ -1,12 +1,21 @@
 set nocompatible
-" Fancy colours
+" Fancy colors
 set t_Co=256
 colorscheme jellybeans
-" Transparency
+"set background=light
+" color scheme settings
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
 \}
 let g:jellybeans_use_term_italics = 1
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
 
 set ruler
 set history=50
@@ -41,7 +50,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = "pdf"
 let g:Tex_ViewRule_pdf = "exec zathura"
-let g:Tex_CompileRule_pdf = "pdflatex"
+let g:Tex_CompileRule_pdf = "lualatex"
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
 

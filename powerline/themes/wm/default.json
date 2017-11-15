@@ -3,7 +3,22 @@
         "right": [
             {
                 "function": "powerline.segments.common.players.mpd",
-                "name": "player"
+                "name": "player",
+                "args": {
+                    "state_symbols": {
+                        "fallback": "",
+                        "play":     "",
+                        "pause":    "",
+                        "stop":     "",
+                        "shuffle":  "",
+                        "repeat":   "",
+                        "loop":     "",
+                        "next":     "",
+                        "previous": ""
+                    },
+                    "format": "{state_symbol} {album} - {title} ({elapsed})",
+                    "short_format": "{state_symbol} {title} ({elapsed})"
+                }
             },
             {
                 "function": "powerline.segments.common.sys.temp"
@@ -18,7 +33,8 @@
                 "function": "powerline.segments.common.net.wireless",
                 "args" : {
                     "device": "wlp5s0",
-                    "format": "{quality:4.0%} @ {essid}"
+                    "format": " {quality:4.0%} @ {essid}",
+                    "short_format": " {quality:4.0%}"
                 }
             },
             {

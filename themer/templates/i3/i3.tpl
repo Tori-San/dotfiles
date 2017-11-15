@@ -63,7 +63,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+Shift+a focus parent
@@ -242,6 +242,12 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
 
 bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
+
+## mpd controls
+
+bindsym $mod+comma exec --no-startup-id mpc prev
+bindsym $mod+period exec --no-startup-id mpc next
+bindsym $mod+space exec --no-startup-id mpc toggle
 
 ## looks
 

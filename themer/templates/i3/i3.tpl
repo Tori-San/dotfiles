@@ -159,7 +159,12 @@ bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" |
 bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
 
 #bindsym $mod+Shift+x exec "i3lock-fancy -gp"
-bindsym $mod+Shift+x exec --no-startup-id i3lock -n -c 161618
+bindsym $mod+Shift+x exec --no-startup-id i3lock -n -i /home/kai/pictures/wallpapers/wallpaper \
+    --insidecolor=00000000 --ringcolor={{ nb[1:] }}ff --line-uses-inside \
+    --keyhlcolor={{ sb[1:] }}ff --bshlcolor={{ nf[1:] }}ff --separatorcolor=00000000 \
+    --insidevercolor={{ nb[1:] }}ff --insidewrongcolor={{ nf[1:] }}ff \
+    --ringvercolor={{ nb[1:]}}ff --ringwrongcolor={{ nb[1:] }}ff --indpos="x+86:y+1003" \
+    --radius=15 --veriftext="" --wrongtext=""
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

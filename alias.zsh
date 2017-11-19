@@ -19,13 +19,13 @@ alias rtfm='man'
 alias tldr='less'
 
 alias comp="g++ -std=c++14 -O2 -Wall -Wextra "
-#alias compd="clang++ -std=c++14 -g3 -Wall -Wextra -fsanitize=undefined -D_GlIBCXX_DEBUG "
 alias compd="clang++ -std=c++14 -g3 -Weverything -Wno-shadow-field-in-constructor -Wno-c++98-compat -Wno-missing-prototypes -Wno-c++98-compat-pedantic -Wno-shorten-64-to-32 -Wno-missing-variable-declarations -Wno-exit-time-destructors -Wno-global-constructors -Wno-padded -Wno-sign-conversion -fsanitize=undefined -fsanitize=address -D_GLIBCXX_DEBUG "
 alias compo="clang++ -std=c++14 -O3 -march=native -Wall -Wextra "
 
 compy () {
-    cython --embed $1 -o /tmp/cython_tmp.c
-    gcc $(python-config --cflags) $(python-config --ldflags) /tmp/cython_tmp.c
+    cython --embed $1 -o /tmp/cython_tmp.c && \
+    gcc $(python-config --cflags) $(python-config --ldflags) /tmp/cython_tmp.c ${@:2} && \
+    rm /tmp/cython_tmp.c
 }
 
 alias clip="xclip -selection clipboard"

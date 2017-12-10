@@ -108,7 +108,7 @@
             {
                  "type": "string",
                  "contents": "",
-                 "highlight_groups": [ "workspaces_icon" ]
+                 "highlight_groups": [ "level:1" ]
             },
             {
                 "function": "powerline.segments.i3wm.mode",

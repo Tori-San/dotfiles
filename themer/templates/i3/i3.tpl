@@ -299,7 +299,7 @@ exec --no-startup-id redshift
 exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
 ##exec --no-startup-id ~/utils/randomPokemonWallpaper # wallpaper
 exec_always --no-startup-id ~/.fehbg
-exec --no-startup-id termite --title=Scratch
+exec --no-startup-id termite --title=Scratch -e "tmux new -A -s scratch"
 exec --no-startup-id chromium --title=Chromium
 
 exec_always --no-startup-id ibus-daemon -r

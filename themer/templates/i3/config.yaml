@@ -25,6 +25,7 @@ plugins:
     - themer.activators.wallfix.WallfixActivator
     - themer.activators.i3.I3Activator
     - themer.activators.termite.TermiteActivator
+    - themer.activators.tmux-powerline.TmuxActivator
   # - themer.activators.acyl.ACYLActivator
 files:
   #Xdefaults.tpl: Xdefaults

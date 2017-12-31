@@ -1,13 +1,14 @@
 set $mod Mod4
 
 set $dmenu ~/dotfiles/scripts/dm-recent
+set $terminal termite
 
 font pango:Terminus 8
 
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -290,7 +291,7 @@ for_window[title="^Floaty$"] floating enable
 ##exec_always --no-startup-id sleep 1 && ~/Repos/powerline/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
 exec --no-startup-id powerline-daemon -q
 exec_always --no-startup-id killall lemonbar
-exec_always --no-startup-id powerline-lemonbar --i3 --clicks --height 13 -- -a 40 -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
+exec_always --no-startup-id powerline-lemonbar --i3 --clicks --height 13 -- -a 40 -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8 -f IPAGothic-8
 
 exec --no-startup-id redshift
 
@@ -299,7 +300,9 @@ exec --no-startup-id redshift
 exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
 ##exec --no-startup-id ~/utils/randomPokemonWallpaper # wallpaper
 exec_always --no-startup-id ~/.fehbg
-exec --no-startup-id termite --title=Scratch -e "tmux new -A -s scratch"
+exec --no-startup-id $terminal --title=Scratch -e "tmux new -A -s scratch"
 exec --no-startup-id chromium --title=Chromium
 
 exec_always --no-startup-id ibus-daemon -r
+
+exec xinput set-prop 13 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 0.5  # trackpoint speed

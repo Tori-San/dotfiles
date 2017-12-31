@@ -44,4 +44,6 @@ alias newsandbox="isolate --init --cg"
 alias sandbox="isolate --dir=etc --dir=boot --dir=home --dir=opt --dir=root --dir=sbin --dir=tmp --cg --cg-timing --chdir=$(pwd) --full-env --processes=100 --meta=/tmp/boxmeta --run "
 alias sandboxmem="isolate --dir=etc --dir=boot --dir=home --dir=opt --dir=root --dir=sbin --dir=tmp --cg --cg-mem=4194304 --cg-timing --chdir=$(pwd) --full-env --mem=4194304  --processes=100 --meta=/tmp/boxmeta --run "
 
+alias vim="vim --servername vim"
+
 alias gds="git diff --staged"

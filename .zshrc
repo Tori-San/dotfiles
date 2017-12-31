@@ -46,7 +46,7 @@ ZSH_THEME="pow"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git catimg)
+plugins=(git catimg zsh-syntax-highlighting themer)
 
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
@@ -91,7 +91,5 @@ export EDITOR="$VISUAL"
 #export DEFAULT_USER=kai
 #source /usr/share/zsh-dwim/init.zsh
 
-# Syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 REPORTTIME=1

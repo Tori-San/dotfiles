@@ -32,6 +32,7 @@ Plug 'tpope/vim-repeat'                 " . repeats last command
 Plug 'gerw/vim-HiLinkTrace'             " for showing highlighting group of elements
 
 Plug 'vim-scripts/JavaDecompiler.vim'   " java decompiler. duh.
+Plug 'godlygeek/tabular'                " Auto-alignment tool
 
 " we need to recompile ycm for semantic completion
 function! BuildYCM(info)

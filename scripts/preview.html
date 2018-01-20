@@ -1,0 +1,200 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+@font-face {
+    font-family: "Droid Powerline";
+    src: url("file:///usr/share/fonts/TTF/Droid Sans Mono Dotted for Powerline.ttf");
+}
+
+.ib {
+    display: inline-block;
+    font-family: "Droid Powerline";
+    font-size: 16px;
+}
+
+div#preview {
+    width: 960px;
+    height: 540px;
+    position: relative;
+}
+
+img#preview_img {
+    width: 960px;
+    height: 540px;
+}
+
+div#preview_l {
+    font-size: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+div#preview_r {
+    font-size: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+</style>
+
+<!-- preview -->
+<div id="preview">
+    <img id="preview_img" src="#" />
+    <div id="preview_l">
+        <div class="ib sb sf">&thinsp;&thinsp;</div>
+        <div class="ib nb fsb">&thinsp;</div>
+        <div class="ib nb nf">1 &thinsp;</div>
+        <div class="ib sb fnb">&thinsp;</div>
+        <div class="ib sb sf">2 &thinsp;</div>
+        <div class="ib nb fsb">&thinsp;</div>
+        <div class="ib nb nf">3   &thinsp;</div>
+        <div class="ib nb nf">window title&thinsp;</div>
+        <div class="ib fnb">&thinsp;</div>
+    </div>
+    <div id="preview_r">
+        <div class="ib fnb">&thinsp;</div>
+        <div class="ib nb" style="color: #6688ff">&thinsp;42.0°C&thinsp;</div>
+        <div class="ib nb" style="color: #719e07">&thinsp;&thinsp;1%&thinsp;</div>
+        <div class="ib nb" style="color: #719e07">&thinsp;&thinsp;69% @ Wifi&thinsp;</div>
+        <div class="ib nb nf"> Dec 25</div>
+        <div class="ib nb fsb">&thinsp;</div>
+        <div class="ib sb sf">&thinsp;13:37&thinsp;</div>
+    </div>
+</div>
+
+<div id="o"></div>
+
+<div>
+    <input type="file" id="imgsrc" accept=".jpg, .jpeg, .png"/>
+    <table id="color_inputs" style="text-align: center;">
+        <tr>
+            <th>nb</th>
+            <th>nf</th>
+            <th>sb</th>
+            <th>sf</th>
+        </tr>
+        <tr>
+            <td><input type="color" id="nb" value="#ffffff"/></td>
+            <td><input type="color" id="nf" value="#000000"/></td>
+            <td><input type="color" id="sb" value="#000000"/></td>
+            <td><input type="color" id="sf" value="#ffffff"/></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+function set_colors(s) {
+    var cols = s.split(" ");
+    $("#nb").val("#" + cols[0]);
+    $("#nf").val("#" + cols[1]);
+    $("#sb").val("#" + cols[2]);
+    $("#sf").val("#" + cols[3]);
+    update_preview();
+}
+
+function handler(e) {
+    var reader = new FileReader();
+    var f = e.target.files.item(0);
+
+    reader.onload = function(e) {
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext && canvas.getContext('2d');
+        var width, height;
+        var img = $("#preview_img");
+
+        img.attr("src", e.target.result);
+        // var img = document.getElementById("preview_img");
+        img = img[0];
+
+        width = canvas.width = img.naturalWidth || img.offsetWidth || img.width;
+        height = canvas.height = img.naturalHeight || img.offsetHeight || img.height;
+
+        context.drawImage(img, 0, 0);
+
+        try {
+            data = context.getImageData(0, 0, width, height);
+        } catch(e) {
+            alert("oh no");
+        }
+
+        var dict = {}
+        var i = -4;
+
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+        while ((i += 4) < data.data.length) {
+            //var key = data.data[i] + " " + data.data[i+1] + " " + data.data[i+2];
+            var r = data.data[i] || 0, g = data.data[i+1] || 0, b = data.data[i+2] || 0,
+                key = "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+
+            dict[key] = (dict[key] + 1) || 1;
+        }
+
+        var items = Object.keys(dict).map(function(key) {
+            return [key, dict[key]];
+        });
+
+        items.sort(function(fst, snd) {
+            return snd[1] - fst[1];
+        });
+
+
+        colors = items.slice(0, 5);
+
+        var row = $("<tr/>");
+
+        for (var i = 0; i < colors.length; ++i) {
+            var col = colors[i][0];
+            var row = $("<tr/>");
+
+            for (var j = 0; j < 4; ++j) {
+                var c = ["nb", "nf", "sb", "sf"][j];
+                td = $("<td/>");
+                td.append($("<div/>", {
+                    click: (function(t, x) { return function() { $("#" + t).val(x); update_preview() } })(c, col),
+                    text: "...",
+                    style: "color: " + col + "; background-color: " + col
+                }));
+                row.append(td);
+            }
+
+            $("#color_inputs").append(row);
+        }
+
+    }
+
+    reader.readAsDataURL(f);
+}
+
+function update_preview() {
+
+    var nb = $("#nb").val();
+    var nf = $("#nf").val();
+    var sb = $("#sb").val();
+    var sf = $("#sf").val();
+
+    $(".sb").css("background-color", sb);
+    $(".sf").css("color", sf);
+
+    $(".nb").css("background-color", nb);
+    $(".nf").css("color", nf);
+
+    $(".fsb").css("color", sb);
+    $(".fnb").css("color", nb);
+
+    $("#o").html("<pre>nb: '" + nb + "'\nnf: '" + nf + "'\nsb: '" + sb + "'\nsf: '" + sf + "'<\pre>");
+}
+
+$("#imgsrc").on("change", handler);
+$("#nb").on("input", update_preview);
+$("#nf").on("input", update_preview);
+$("#sb").on("input", update_preview);
+$("#sf").on("input", update_preview);
+
+update_preview();
+</script>

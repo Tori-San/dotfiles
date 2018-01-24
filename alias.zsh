@@ -35,6 +35,7 @@ alias pubip="curl -s ipv4.icanhazip.com"
 alias vserver="ssh -A dratini@v22017014164742712.powersrv.de"
 
 alias netrestart="systemctl restart netctl-auto@wlp5s0.service"
+alias btrestart="systemctl restart bluetooth"
 
 alias scratch='i3-msg exec "termite --title Scratch -e \"tmux new -A -s scratch\""'
 

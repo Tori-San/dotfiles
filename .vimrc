@@ -1,8 +1,7 @@
 set nocompatible
 call plug#begin('~/.vim/vim-plug')
-Plug 'vim-airline/vim-airline'
-" Plug 'fsrc/lyla-vim'
-Plug 'nanotech/jellybeans.vim'          " color scheme
+Plug 'flazz/vim-colorschemes'
+" Plug 'nanotech/jellybeans.vim'          " color scheme
 Plug 'sjl/gundo.vim'                    " allows for the undo tree (<leader>u to toggle)
 Plug 'vim-airline/vim-airline'          " the airline bar
 Plug 'vim-airline/vim-airline-themes'   " the airline bar themes
@@ -33,6 +32,7 @@ Plug 'gerw/vim-HiLinkTrace'             " for showing highlighting group of elem
 
 Plug 'vim-scripts/JavaDecompiler.vim'   " java decompiler. duh.
 Plug 'godlygeek/tabular'                " Auto-alignment tool
+Plug 'tpope/vim-abolish'                " Better substitution
 
 " we need to recompile ycm for semantic completion
 function! BuildYCM(info)
@@ -98,6 +98,8 @@ set showmatch  " highlight matching brackets
 
 set incsearch " search as characters are entered
 set hlsearch  " highlight matches
+set ignorecase " case insensitive search by default
+set smartcase  " case sensitive search if pattern contains uppercase letters
 
 set hidden  " allow modified buffers to be hidden
 
@@ -285,3 +287,7 @@ noremap <silent> <S-Down> <Down>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
+"
+"python3 from powerline.vim import setup as powerline_setup
+"python3 powerline_setup()
+"python3 del powerline_setup

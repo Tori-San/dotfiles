@@ -286,19 +286,13 @@ for_window[title="^Floaty$"] floating enable
 # autostart
 
 # bar
-
-##exec_always --no-startup-id pkill -f 'python .*powerline-lemonbar\.py'
-##exec_always --no-startup-id sleep 1 && ~/Repos/powerline/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 --height 13 -- -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8
 exec --no-startup-id powerline-daemon -q
-exec_always --no-startup-id killall lemonbar
-exec_always --no-startup-id powerline-lemonbar --i3 --clicks --height 13 -- -a 40 -b -f "-xos4-terminesspowerline-medium-*-*-*-12-*-*-*-*-*-*-*" -f FontAwesome-8 -f IPAGothic-8
+exec --no-startup-id ~/dotfiles/scripts/bar.sh
 
 exec --no-startup-id redshift
 
-#exec --no-startup-id .config/i3/bar_wrapper.sh
 
 exec --no-startup-id /usr/bin/compton -b -c --config ~/.config/compton/config # transparency+shadows
-##exec --no-startup-id ~/utils/randomPokemonWallpaper # wallpaper
 exec_always --no-startup-id ~/.fehbg
 exec --no-startup-id $terminal --title=Scratch -e "tmux new -A -s scratch"
 exec --no-startup-id chromium --title=Chromium

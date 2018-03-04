@@ -207,6 +207,7 @@ let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']   " run langua
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'     " the global compiler flags will be stored here
 " let g:ycm_show_diagnostics_ui = 0                               " don't mess with syntastic
 let g:ycm_extra_conf_globlist = ['~/contests/*']
+let g:ycm_collect_identifiers_from_tags_files = 1
 " }}}
 " NERDTree {{{
 " toogle NERDTree

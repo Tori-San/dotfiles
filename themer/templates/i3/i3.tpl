@@ -237,6 +237,8 @@ bindsym $mod+Shift+F12 exec --no-startup-id setxkbmap de
 
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 10 #Decrease Brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight + 10 #Increase Brightness
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 1
+bindsym ShiftXF86MonBrightnessUp exec --no-startup-id xbacklight -set 100
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle #Mute
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% #Decrease Volume

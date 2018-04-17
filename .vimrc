@@ -1,10 +1,10 @@
 set nocompatible
 call plug#begin('~/.vim/vim-plug')
-Plug 'flazz/vim-colorschemes'
-" Plug 'nanotech/jellybeans.vim'          " color scheme
+"Plug 'flazz/vim-colorschemes'
+Plug 'nanotech/jellybeans.vim'          " color scheme
 Plug 'sjl/gundo.vim'                    " allows for the undo tree (<leader>u to toggle)
-Plug 'vim-airline/vim-airline'          " the airline bar
-Plug 'vim-airline/vim-airline-themes'   " the airline bar themes
+"Plug 'vim-airline/vim-airline'          " the airline bar
+"Plug 'vim-airline/vim-airline-themes'   " the airline bar themes
 Plug 'lervag/vimtex',                   " for latex
             \ { 'for' : 'latex' }
 Plug 'leafgarland/typescript-vim',      " typescript syntax highlighting
@@ -68,10 +68,11 @@ set listchars=tab:>-,trail:~,extends:>,precedes:<
 " }}}
 " Colorscheme {{{
 colorscheme jellybeans
-" Customization {{{
 let g:jellybeans_overrides = {
 \   'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\   'Todo': { '256ctermfg': 'Yellow', 'attr': 'bold' },
 \}
+" Customization {{{
 "augroup lyla_custom
 "" TODO: adjust this for gui mode aswell
    "autocmd!
@@ -121,8 +122,8 @@ endif
 " Plugin configuration {{{
 " Airline {{{
 set laststatus=2                             " show airline on all buffers
-let g:airline_powerline_fonts=1              " use the powerline fonts
-let g:airline_theme='bubblegum'                " use my custom theme
+"let g:airline_powerline_fonts=1              " use the powerline fonts
+"let g:airline_theme='behelit'
 " }}}
 " Vimtex {{{
 " switch the latexmk flags to use lualatex
@@ -289,6 +290,6 @@ noremap <silent> <S-Down> <Down>
 
 " vim:foldmethod=marker:foldlevel=0
 "
-"python3 from powerline.vim import setup as powerline_setup
-"python3 powerline_setup()
-"python3 del powerline_setup
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup

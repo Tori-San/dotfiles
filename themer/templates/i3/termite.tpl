@@ -1,14 +1,17 @@
 # vim ft=dosini cms=#%s
 
 [options]
-font=xos4 Terminess Powerline 12
+font = Hack
 
 [colors]
-cursor = #00ff00
+cursor = {{ green }}
 cursor_foreground = #000000
 #background = #121212
-background = rgba(18, 18, 18, 0.8)
-foreground = #ffffff
+#background = rgba(18, 18, 18, 0.8)
+#foreground = #ffffff
+
+background = {{ background }}
+foreground = {{ foreground }}
 
 # black
 color0 = {{ black }}

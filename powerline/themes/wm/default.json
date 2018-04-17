@@ -2,25 +2,6 @@
     "segments": {
         "right": [
             {
-                "function": "powerline.segments.common.players.mpd",
-                "name": "player",
-                "args": {
-                    "state_symbols": {
-                        "fallback": "",
-                        "play":     "",
-                        "pause":    "",
-                        "stop":     "",
-                        "shuffle":  "",
-                        "repeat":   "",
-                        "loop":     "",
-                        "next":     "",
-                        "previous": ""
-                    },
-                    "format": "{state_symbol} {album} - {title} ({elapsed})",
-                    "short_format": "{state_symbol} {title} ({elapsed})"
-                }
-            },
-            {
                 "function": "powerline.segments.common.sys.temp"
             },
             {
@@ -34,7 +15,8 @@
                 "args" : {
                     "device": "wlp5s0",
                     "format": " {quality:4.0%} @ {essid}",
-                    "short_format": " {quality:4.0%}"
+                    "short_format": " {quality:4.0%}",
+                    "auto_shrink": true
                 }
             },
             {
@@ -56,6 +38,23 @@
                 "args": {
                     "format": " {volume:2.0%}",
                     "format_muted": null
+                }
+            },
+            {
+                "function":             "powerline.segments.common.appoints.gcalendar",
+                "args": {
+                    "developer_key":    "???",
+                    "count":            0,
+                    "auto_shrink":      true,
+                    "single_when_shrunk": true,
+                    "short_format":     " {count}{error}",
+                    "format":           "{summary}{time}, {location}"
+                }
+            },
+            {
+                "function": "powerline.segments.common.generic.generic_shell",
+                "args": {
+                    "command": "echo $(($(cat /sys/class/power_supply/BAT0/power_now)/1000000))W"
                 }
             },
             {
@@ -123,13 +122,27 @@
                 }
             },
             {
+                "function": "powerline.segments.randr.output",
+                "args": {
+                    "status_icons": {
+                        "on":           "",
+                        "off":          ""
+                    },
+                    "mirror_icons": {
+                        "extend":       "",
+                        "mirror":       ""
+                    },
+                    "auto_update": true,
+                    "redraw_hook": "/home/kai/.fehbg"
+                }
+            },
+            {
                 "function": "powerline.segments.i3wm.workspaces",
                 "exclude_modes": [ "default" ],
                 "draw_inner_divider": true,
                 "draw_soft_divider": true,
                 "args": {
                     "only_show": [ "focused", "visible" ],
-                    "output": "__all__",
                     "separator": " ",
                     "show_multiple_icons": false,
                     "icons": {
@@ -162,7 +175,6 @@
                 "draw_inner_divider": true,
                 "draw_soft_divider": true,
                 "args": {
-                    "output": "__all__",
                     "separator": " ",
                     "show_multiple_icons": true,
                     "icons": {

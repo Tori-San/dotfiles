@@ -43,17 +43,35 @@
             "left": "i3-msg scratchpad show",
             "right": "i3-msg move to scratchpad"
         } },
+        "appoint": {
+            "bg":               "level:3_bg",
+            "fg":               "level:3_fg",
+            "click": {
+                "left":         "#bar;ch_toggle"
+            }
+        },
+        "appoint:urgent": {
+            "bg":               "level:2_bg",
+            "fg":               "level:2_fg",
+            "click": {
+                "left":         "#bar;ch_toggle"
+            }
+        },
+        "appoint:error": {
+            "fg":               "level:3_fg",
+            "bg":               "red",
+            "click": {
+                "right":        "powerline-gcal-auth '59921293372-1mv16an3a2j8g2tomi0f4lplh7cvlbv1.apps.googleusercontent.com' 'HTcqWwSp8LfKjsvJB8u8vBP_'",
+                "left":         "#bar;ch_toggle"
+            }
+        },
         "output":                    { "bg": "level:3_bg",            "fg": "brightorange" },
-        "appoint":                   "level:3",
-        "appoint:urgent":            "level:2_bold",
-        "appoint:error":             { "fg": "level:3_fg",            "bg": "red",                "click": {
-            "left": "powerline-gcal-auth 'client_id' 'client_secret'"
-        } },
         "mode":                      "level:2",
         "active_window_title":       "level:3",
         "hostname":                  { "fg": "level:1_fg",            "bg": "level:1_bg",         "click": {
             "left": "#bar;restart"
         } },
-        "temp":                      { "fg": "blue_red",              "bg": "level:3_bg"}
+        "temp":                      { "fg": "blue_red",              "bg": "level:3_bg"},
+        "generic_shell":             { "fg": "level:3_fg",            "bg": "level:3_bg"}
     }
 }

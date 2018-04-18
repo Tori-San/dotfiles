@@ -14,7 +14,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id $dmenu -fn "terminesspowerline-8" -i -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -p "> "
+bindsym $mod+d exec --no-startup-id $dmenu -fn "terminesspowerline-8" -i -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -p "> "
 
 # change focus
 #bindsym $mod+j focus left
@@ -155,17 +155,10 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
+bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
 
-bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
+bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
 
-#bindsym $mod+Shift+x exec "i3lock-fancy -gp"
-#bindsym $mod+Shift+x exec --no-startup-id i3lock -n -i /home/kai/pictures/wallpapers/wallpaper \
-#    --insidecolor=00000000 --ringcolor={{ nb[1:] }}ff --line-uses-inside \
-#    --keyhlcolor={{ sb[1:] }}ff --bshlcolor={{ nf[1:] }}ff --separatorcolor=00000000 \
-#    --insidevercolor={{ nb[1:] }}ff --insidewrongcolor={{ nf[1:] }}ff \
-#    --ringvercolor={{ nb[1:]}}ff --ringwrongcolor={{ nb[1:] }}ff --indpos="x+86:y+1003" \
-#    --radius=15 --veriftext="" --wrongtext=""
 bindsym $mod+Shift+x exec --no-startup-id xsecurelock
 
 # resize window (you can also use the mouse for that)
@@ -248,9 +241,9 @@ bindsym XF86TouchpadToggle exec --no-startup-id ~/dotfiles/scripts/toggletouchpa
 
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
 
-bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ sb }}\\" -nb \\"{{ nb }}\\" -nf \\"{{ nf }}\\" -sf \\"{{ sf }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
 
 ## mpd controls
 
@@ -271,10 +264,11 @@ smart_borders on
 set $warning    #ff6600
 
 #type                   border      background  text        indicator
-client.focused          {{ sb }}    {{ sb }}    {{ sf }}    {{ sb }}
-client.focused_inactive {{ nb }}    {{ nb }}    {{ nf }}    {{ nb }}
-client.unfocused        {{ nb }}    {{ nb }}    {{ nf }}    {{ nb }}
-client.urgent           $warning    $warning    $warning    $warning
+client.focused          {{ level1_bg }}    {{ level1_bg }}    {{ level1_fg }}    {{ level1_bg }}
+client.focused_inactive {{ level2_bg }}    {{ level2_bg }}    {{ level2_fg }}    {{ level2_bg }}
+client.unfocused        {{ level2_bg }}    {{ level2_bg }}    {{ level2_bg }}    {{ level2_bg }}
+client.urgent           {{ level1_bg_vis }} {{ level1_bg_vis }} {{ level1_fg_vis }} {{ level1_bg_vis }}
+#client.urgent           $warning    $warning    $warning    $warning
 
 # workspace-assignments
 

@@ -1,35 +1,18 @@
-variables:
-  primary: magenta
-  secondary: green
-  tertiary: red
-  special: yellow
-  prompt: yellow
-  nb: yellow
-  nf: yellow
-  sb: yellow
-  sf: yellow
-  nb_contrast: yellow
-  transparency: 70
-  fontName: terminus
-  fontSize: 10
-  font: "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
 plugins:
-  parsers:
-    - themer.parsers.SweylaColorParser
-    - themer.parsers.WallhavenColorParser
-    - themer.parsers.KmeansColorParser
-    - themer.parsers.CachedColorParser
-  # - themer.parsers.vim.VimColorParser
-    - themer.ColorParser
   activators:
     - themer.activators.wallfix.WallfixActivator
     - themer.activators.i3.I3Activator
     - themer.activators.termite.TermiteActivator
-    - themer.activators.tmux-powerline.TmuxActivator
-  # - themer.activators.acyl.ACYLActivator
+    - custom.CustomActivator
+  parsers:
+    - themer.ColorParser
 files:
-  #Xdefaults.tpl: Xdefaults
-  #index.tpl: index.html
+
   i3.tpl: i3.conf
   powerline.tpl: colors.json
   termite.tpl: termite.conf
+
+  # gtk stuff
+  #gtk.tpl: gtk.css
+  #gtkrc.tpl: gtkrc
+  #menubarrc.tpl: menubar-toolbar-dark.rc

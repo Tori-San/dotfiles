@@ -1,11 +1,28 @@
 {
     "colors": {
-        "level:1_fg": "0x{{ sf[1:] }}",
-        "level:1_bg": "0x{{ sb[1:] }}",
-        "level:2_fg": "0x{{ nf[1:] }}",
-        "level:2_bg": "0x{{ nb[1:] }}",
-        "level:3_fg": "0x{{ nb_contrast[1:] }}",
-        "level:3_bg": "0x{{ nb[1:] }}",
+        "level:1_fg": "0x{{ level1_fg[1:] }}",
+        "level:1_bg": "0x{{ level1_bg[1:] }}",
+        "level:2_fg": "0x{{ level2_fg[1:] }}",
+        "level:2_bg": "0x{{ level2_bg[1:] }}",
+        "level:3_fg": "0x{{ level3_fg[1:] }}",
+        "level:3_bg": "0x{{ level3_bg[1:] }}",
+        "level:4_fg": "0x{{ level4_fg[1:] }}",
+        "level:4_bg": "0x{{ level4_bg[1:] }}",
+
+        "level:1_fg_alt": "0x{{ level1_fg_alt[1:] }}",
+        "level:1_bg_alt": "0x{{ level1_bg_alt[1:] }}",
+        "level:2_fg_alt": "0x{{ level2_fg_alt[1:] }}",
+        "level:2_bg_alt": "0x{{ level2_bg_alt[1:] }}",
+        "level:3_fg_alt": "0x{{ level3_fg_alt[1:] }}",
+        "level:3_bg_alt": "0x{{ level3_bg_alt[1:] }}",
+        "level:4_fg_alt": "0x{{ level4_fg_alt[1:] }}",
+        "level:4_bg_alt": "0x{{ level4_bg_alt[1:] }}",
+
+        "level:1_fg_vis": "0x{{ level1_fg_vis[1:] }}",
+        "level:1_bg_vis": "0x{{ level1_bg_vis[1:] }}",
+
+        "level:1_fg_rep": "0x{{ level1_fg_rep[1:] }}",
+        "level:1_bg_rep": "0x{{ level1_bg_rep[1:] }}",
 
         "black":             16,
         "white":            231,

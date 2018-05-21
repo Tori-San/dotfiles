@@ -10,7 +10,7 @@ cursor_foreground = #000000
 #background = rgba(18, 18, 18, 0.8)
 #foreground = #ffffff
 
-background = {{ background }}
+background = rgba(0x{{ background[1:3] }}, 0x{{ background[3:5] }}, 0x{{ background[5:] }}, 0.9)
 foreground = {{ foreground }}
 
 # black

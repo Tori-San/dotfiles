@@ -1,6 +1,7 @@
 set $mod Mod4
 
-set $dmenu ~/dotfiles/scripts/dm-recent
+set $dm-recent ~/dotfiles/scripts/dm-recent
+set $dmenu-flags -fn \\"hack-10\\" -i -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\"
 set $terminal termite
 
 font pango:Terminus 8
@@ -14,7 +15,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id $dmenu -fn "terminesspowerline-8" -i -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -p "> "
+bindsym $mod+d exec --no-startup-id $dm-recent $dmenu-flags -p "> "
 
 # change focus
 #bindsym $mod+j focus left
@@ -155,9 +156,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
+bindsym $mod+Shift+e exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu $dmenu-flags -p \\"exit i3?\\") = yes ]; then i3-msg exit; fi'"
 
-bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu -fn \\"terminesspowerline-8\\" -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
+bindsym $mod+Shift+s exec --no-startup-id "sh -c 'if [ $(echo -e \\"no\nyes\\" | dmenu $dmenu-flags -p \\"shutdown?\\") = yes ]; then shutdown now; fi'"
 
 bindsym $mod+Shift+x exec --no-startup-id xsecurelock
 
@@ -241,9 +242,9 @@ bindsym XF86TouchpadToggle exec --no-startup-id ~/dotfiles/scripts/toggletouchpa
 
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"switch workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+t exec --no-startup-id sh -c 'i3-msg workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu $dmenu-flags -p \\"switch workspace\\")'
 
-bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu -sb \\"{{ level1_bg }}\\" -nb \\"{{ level2_bg }}\\" -nf \\"{{ level2_fg }}\\" -sf \\"{{ level1_fg }}\\" -i -p \\"move to workspace\\" -fn \\"terminesspowerline-8\\")'
+bindsym $mod+Shift+t exec --no-startup-id sh -c 'i3-msg move container to workspace $(~/dotfiles/scripts/get_workspaces.py | dmenu $dmenu-flags -p \\"move to workspace\\")'
 
 ## mpd controls
 

@@ -1,11 +1,13 @@
 {
     "groups": {
-        "active_window_status": "level:3",
-        "window_status":        "level:3",
-        "activity_status":      "level:3",
-        "bell_status":          "level:3",
+        "background":           "level:2",
+        "background:divider":   "level:2",
+        "active_window_status": "level:2",
+        "window_status":        "level:2",
+        "activity_status":      "level:2",
+        "bell_status":          "level:2",
         "window":               "level:2",
-        "window:divider":       "level:3",
+        "window:divider":       "level:2",
         "window:current":       "level:1",
         "window_name":          "level:1_bold",
         "session":              "level:1_bold",

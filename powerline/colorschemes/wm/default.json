@@ -68,6 +68,9 @@
         "output":                    { "bg": "level:3_bg",            "fg": "brightorange" },
         "mode":                      "level:2",
         "active_window_title":       "level:3",
+        "active_window_title:single":       "level:3",
+        "active_window_title:stacked_unfocused":       "level:3",
+        "active_window_title:stacked":       "level:3",
         "hostname":                  { "fg": "level:1_fg",            "bg": "level:1_bg",         "click": {
             "left": "#bar;restart"
         } },

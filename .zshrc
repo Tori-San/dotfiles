@@ -93,6 +93,6 @@ export EDITOR="$VISUAL"
 
 # Powerlines?
 # some delay on startup though
-source "/usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh"
+source "/usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 
 REPORTTIME=1

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # ssh
+    exit 1
+fi
+
 if xset q &>/dev/null; then
     # x already running
     exit 1
